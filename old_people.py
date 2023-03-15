@@ -7,7 +7,8 @@ Usage:
  python old_people.py
 """
 import os
-import inspect 
+import inspect
+import sqlite3
 
 def main():
     global db_path
@@ -31,6 +32,10 @@ def get_old_people():
         list: (name, age) of old people 
     """
     # TODO: Create function body
+    con = sqlite3.connect(db_path)
+    cur = con.cursor()
+    get_50plus_people = 
+    
     return []
 
 def print_name_and_age(name_and_age_list):
