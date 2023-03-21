@@ -34,9 +34,14 @@ def get_old_people():
     # TODO: Create function body
     con = sqlite3.connect(db_path)
     cur = con.cursor()
-    get_50plus_people = 
-    
-    return []
+    get_old_people_query = """
+        SELECT name, age FROM people
+        WHERE age >= 50
+    """
+    cur.execute(get_old_people_query)
+    query_result = cur.fetchall()
+    con.close()
+    return query_result
 
 def print_name_and_age(name_and_age_list):
     """Prints name and age of all people in provided list
@@ -45,6 +50,8 @@ def print_name_and_age(name_and_age_list):
         name_and_age_list (list): (name, age) of people
     """
     # TODO: Create function body
+    for n, a in name_and_age_list:
+        print(f'{n} is {a} years old.')
     return
 
 def save_name_and_age_to_csv(name_and_age_list, csv_path):
@@ -55,6 +62,10 @@ def save_name_and_age_to_csv(name_and_age_list, csv_path):
         csv_path (str): Path of CSV file
     """
     # TODO: Create function body
+    with open(csv_path, 'w') as f:
+        f.write('Name, Age\n')
+        for n, a in name_and_age_list:
+            f.write(f'{n}, {a}\n')
     return
 
 def get_script_dir():
