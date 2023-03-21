@@ -9,6 +9,7 @@ Usage:
 import os
 import inspect
 import sqlite3
+import pandas as pd
 
 def main():
     global db_path
@@ -62,10 +63,8 @@ def save_name_and_age_to_csv(name_and_age_list, csv_path):
         csv_path (str): Path of CSV file
     """
     # TODO: Create function body
-    with open(csv_path, 'w') as f:
-        f.write('Name, Age\n')
-        for n, a in name_and_age_list:
-            f.write(f'{n}, {a}\n')
+    df = pd.DataFrame(name_and_age_list, columns=['Name', 'Age'])
+    df.to_csv(csv_path, index=False)
     return
 
 def get_script_dir():
