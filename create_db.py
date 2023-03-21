@@ -20,7 +20,6 @@ def main():
 
 def create_people_table():
     """Creates the people table in the database"""
-    # TODO: Create function body
     con = sqlite3.connect('social_network.db')
     cur = con.cursor()
     create_ppl_tbl = """
@@ -45,7 +44,6 @@ def create_people_table():
 
 def populate_people_table():
     """Populates the people table with 200 fake people"""
-    # TODO: Create function body
     con = sqlite3.connect('social_network.db')
     cur = con.cursor()
     

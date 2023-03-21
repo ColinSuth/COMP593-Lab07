@@ -32,7 +32,6 @@ def get_old_people():
     Returns:
         list: (name, age) of old people 
     """
-    # TODO: Create function body
     con = sqlite3.connect(db_path)
     cur = con.cursor()
     get_old_people_query = """
@@ -50,7 +49,6 @@ def print_name_and_age(name_and_age_list):
     Args:
         name_and_age_list (list): (name, age) of people
     """
-    # TODO: Create function body
     for n, a in name_and_age_list:
         print(f'{n} is {a} years old.')
     return
@@ -62,7 +60,6 @@ def save_name_and_age_to_csv(name_and_age_list, csv_path):
         name_and_age_list (list): (name, age) of people
         csv_path (str): Path of CSV file
     """
-    # TODO: Create function body
     df = pd.DataFrame(name_and_age_list, columns=['Name', 'Age'])
     df.to_csv(csv_path, index=False)
     return
